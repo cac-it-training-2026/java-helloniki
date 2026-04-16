@@ -14,8 +14,10 @@ public class Question07_5 {
 		int[] prices = { 120, 80, 50, 250, 100 };
 		// 購入数（変更不可）
 		int[] amounts = new int[5];
-		int sum = 0;
+
+		int totalPrice = 0;
 		double TaxRate = 1.1;
+		double saleRate = 0.1;
 
 		// TODO: 実装ここから
 
@@ -25,19 +27,19 @@ public class Question07_5 {
 			System.out.println(itemNames[i] + "の購入数＞");
 			String str = reader.readLine();
 			amounts[i] = Integer.parseInt(str);
-			sum += amounts[i] * prices[i];
+			totalPrice += amounts[i] * prices[i];
 
 		}
 
-		int sale = (int) (sum * 0.9);
 		for (int i = 0; i < amounts.length; i++) {
 			System.out.println(itemNames[i] + ":単価" + prices[i] + "円（税込" + (int) (prices[i] * TaxRate) + "円）" + "x"
 					+ amounts[i] + "個=" + (int) (prices[i] * amounts[i] * TaxRate) + "円");
 
 		}
 
-		System.out.println("合計合計（税込）：" + (int) (sum * TaxRate) + "円");
-		System.out.println("割引後合計（税込）:" + (int) (sale * TaxRate) + "円");
+		System.out.println("合計合計（税込）：" + (int) (totalPrice * TaxRate) + "円");
+		totalPrice = (int) (totalPrice - totalPrice * saleRate);
+		System.out.println("割引後合計（税込）:" + (int) (totalPrice * TaxRate) + "円");
 
 	}
 }

@@ -15,6 +15,7 @@ public class Question07_4 {
 		// 購入数（変更不可）
 		int[] amounts = new int[5];
 		int totalPrice = 0;
+		double TaxRate = 1.1;
 
 		// TODO: 実装ここから
 
@@ -27,6 +28,7 @@ public class Question07_4 {
 			totalPrice += amounts[i] * prices[i];
 		}
 
+		totalPrice = (int) (totalPrice * TaxRate);
 		System.out.println("割引前合計：" + totalPrice + "円");
 
 		if (totalPrice >= 5000) {
