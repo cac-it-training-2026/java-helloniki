@@ -28,7 +28,6 @@ public class Question07_4 {
 			totalPrice += amounts[i] * prices[i];
 		}
 
-		totalPrice = (int) (totalPrice * TaxRate);
 		System.out.println("割引前合計：" + totalPrice + "円");
 
 		if (totalPrice >= 5000) {
@@ -41,6 +40,7 @@ public class Question07_4 {
 			System.out.println("合計金額が5000円以下なので、10％割引は適応されません。");
 
 		}
+		totalPrice = (int) (totalPrice * TaxRate);
 		System.out.println("税込合計：" + (int) (totalPrice * 1.1) + "円");
 	}
 
