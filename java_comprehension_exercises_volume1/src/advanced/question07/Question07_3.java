@@ -17,38 +17,42 @@ public class Question07_3 {
 
 		// TODO: 実装ここから
 		int[] stocks = new int[5];
-		int[] buy = new int[5];
-		int buy_num;
-		int sum = 0;
-
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 		for (int i = 0; i < stocks.length; i++) {
 			System.out.println(itemNames[i] + "在庫数＞");
 			String str = reader.readLine();
 			stocks[i] = Integer.parseInt(str);
-
 		}
 
 		for (int i = 0; i < stocks.length; i++) {
-			System.out.println(itemNames[i] + "購入数＞");
-			String str = reader.readLine();
-			buy_num = Integer.parseInt(str);
+			int amount = 0;
+			boolean Valid = false;
+			while (!Valid) {
+				System.out.println(itemNames[i] + "購入数＞");
+				String str = reader.readLine();
+				amount = Integer.parseInt(str);
 
-			if (buy_num <= stocks[i]) {
-				buy[i] = buy_num;
-			} else if (buy_num > stocks[i]) {
-				System.out.println("在庫を超えています。もう一度入力してください。 ");
-				i--;
-				continue;
+				if (amount > stocks[i]) {
+					System.out.println("在庫を超えています。もう一度入力してください。 ");
+					continue;
+
+				} else {
+					amounts[i] = amount;
+					Valid = true;
+				}
 			}
 		}
 
-		for (int i = 0; i < buy.length; i++) {
-			System.out.println(itemNames[i] + ":購入" + buy[i] + "個");
+		for (int i = 0; i < itemNames.length; i++) {
+
+			System.out.println(itemNames[i] + ":購入" + amounts[i] + "個");
 			System.out.println("在庫：" + stocks[i] + "個");
-			sum += buy[i] * prices[i];
 		}
-		System.out.println("合計金額：" + sum + "円");
+		int totalPrice = 0;
+		for (int i = 0; i < prices.length; i++) {
+			totalPrice += prices[i] * amounts[i];
+		}
+		System.out.println("合計金額：" + totalPrice + "円");
 	}
 }

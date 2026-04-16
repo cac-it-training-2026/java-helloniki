@@ -10,7 +10,6 @@ public class Question07_1 {
 
 		// TODO:ここに実装
 		String[] itemNames = new String[5];
-		int[] prices = new int[5];
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -20,6 +19,7 @@ public class Question07_1 {
 		}
 
 		System.out.println("各商品の単価を順に入力してください。:");
+		int[] prices = new int[5];
 
 		for (int i = 0; i < prices.length; i++) {
 			System.out.println(itemNames[i] + "の単価＞");

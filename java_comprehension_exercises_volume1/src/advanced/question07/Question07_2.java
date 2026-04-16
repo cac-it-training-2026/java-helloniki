@@ -13,7 +13,6 @@ public class Question07_2 {
 		// 単価（値は変更可）
 		int[] prices = { 100, 200, 300, 400, 500 };
 		int[] amounts = new int[5];
-		int sum = 0;
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		// TODO: 実装ここから
@@ -25,11 +24,13 @@ public class Question07_2 {
 
 		}
 
+		int totalPrice = 0;
+
 		for (int i = 0; i < itemNames.length; i++) {
 			System.out.println(itemNames[i] + ":" + (prices[i] * amounts[i] + "円"));
-			sum += prices[i] * amounts[i];
+			totalPrice += prices[i] * amounts[i];
 		}
-		System.out.println("合計金額：" + sum);
+		System.out.println("合計金額：" + totalPrice);
 
 	}
 }
