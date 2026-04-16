@@ -27,19 +27,25 @@ public class Question07_5 {
 			System.out.println(itemNames[i] + "の購入数＞");
 			String str = reader.readLine();
 			amounts[i] = Integer.parseInt(str);
-			totalPrice += amounts[i] * prices[i];
 
 		}
 
 		for (int i = 0; i < amounts.length; i++) {
-			System.out.println(itemNames[i] + ":単価" + prices[i] + "円（税込" + (int) (prices[i] * TaxRate) + "円）" + "x"
-					+ amounts[i] + "個=" + (int) (prices[i] * amounts[i] * TaxRate) + "円");
+			double priceWithTax = prices[i] * TaxRate;
+			double subtotal = priceWithTax * amounts[i];
 
+			System.out.println(itemNames[i] + ":単価" + prices[i] + "円（税込" + (int) priceWithTax + "円）" + "x"
+					+ amounts[i] + "個=" + (int) subtotal + "円");
+			totalPrice += amounts[i] * prices[i];
 		}
 
-		System.out.println("合計合計（税込）：" + (int) (totalPrice * TaxRate) + "円");
-		totalPrice = (int) (totalPrice - totalPrice * saleRate);
-		System.out.println("割引後合計（税込）:" + (int) (totalPrice * TaxRate) + "円");
+		if (totalPrice > 5000) {
+			System.out.println("合計合計（税込）：" + (int) (totalPrice * TaxRate) + "円");
+			totalPrice = (int) (totalPrice - totalPrice * saleRate);
+			System.out.println("割引後合計（税込）:" + (int) (totalPrice * TaxRate) + "円");
 
+		} else {
+			System.out.println("合計合計（税込）：" + (int) (totalPrice * TaxRate) + "円");
+		}
 	}
 }

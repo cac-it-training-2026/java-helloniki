@@ -41,7 +41,7 @@ public class Question07_4 {
 
 		}
 		totalPrice = (int) (totalPrice * TaxRate);
-		System.out.println("税込合計：" + (int) (totalPrice * 1.1) + "円");
+		System.out.println("税込合計：" + totalPrice + "円");
 	}
 
 }
